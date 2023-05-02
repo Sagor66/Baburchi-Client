@@ -10,4 +10,8 @@
   .icon {
     @apply bg-red-50 p-3 rounded-full text-red-600;
   }
+
+  .text-clip-transparent {
+    @apply text-transparent bg-clip-text;
+  }
 }
