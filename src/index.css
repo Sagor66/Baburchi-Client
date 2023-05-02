@@ -14,4 +14,8 @@
   .text-clip-transparent {
     @apply text-transparent bg-clip-text;
   }
+
+  .chef-text {
+    @apply flex items-center gap-4 font-medium text-gray-700 mb-2;
+  }
 }
