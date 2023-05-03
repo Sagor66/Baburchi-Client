@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import ActiveRoute from "../../routes/ActiveRoute";
+
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -26,18 +28,18 @@ const Header = () => {
         </div>
       </Link>
       <div className="flex items-center gap-8">
-        <Link
+        <ActiveRoute
           to="/"
           className="text-xl text-red-600 font-semibold hover:underline hover:decoration-4 hover:decoration-red-600"
         >
           Home
-        </Link>
-        <Link
+        </ActiveRoute>
+        <ActiveRoute
           className="text-xl text-red-600 font-semibold hover:underline hover:decoration-4 hover:decoration-red-600"
           to="/blog"
         >
           Blog
-        </Link>
+        </ActiveRoute>
       </div>
 
       <div className="w-[300px]">
