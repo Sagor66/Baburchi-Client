@@ -26,4 +26,12 @@
   .section-header {
     @apply text-5xl font-bold text-center text-red-600 mb-14;
   }
+
+  .form-label {
+    @apply flex items-center gap-4;
+  }
+
+  .form-input {
+    @apply bg-red-100 w-96 px-3 py-2 rounded-lg;
+  }
 }

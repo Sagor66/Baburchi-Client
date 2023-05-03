@@ -29,9 +29,14 @@ const Header = () => {
           Blog
         </Link>
       </div>
-      <button className="btn-primary">
-        Login
-      </button>
+      <div className="flex gap-10">
+        <Link to="/register">
+          <button className="btn-primary">Sign Up</button>
+        </Link>
+        <Link to="/login">
+          <button className="btn-primary">Login</button>
+        </Link>
+      </div>
     </nav>
   );
 };
