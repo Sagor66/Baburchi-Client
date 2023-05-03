@@ -40,7 +40,7 @@ const Header = () => {
         </Link>
       </div>
 
-      <div>
+      <div className="w-[300px]">
         {user ? (
           <div className="flex items-center gap-8">
             <div
