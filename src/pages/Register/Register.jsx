@@ -1,8 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
+import { getAuth, updateProfile } from 'firebase/auth';
+import app from '../../firebase/firebase.config';
 
 const Register = () => {
   const { createUser } = useContext(AuthContext)
+  
 
   const handleLogin = event => {
     event.preventDefault()
@@ -12,15 +15,22 @@ const Register = () => {
     const name = form.name.value
     const photoURL = form.url.value
 
-    console.log(email, password, name, photoURL)
-
     createUser(email, password)
     .then(result => {
       const createUser = result.user;
       console.log(createUser)
+      updateUserData(result.user, name, photoURL)
     })
     .catch(error => console.log(error.message))
 
+    const updateUserData = (user, name, photo) => {
+      updateProfile(user, {
+        displayName: name,
+        photoURL: photo
+      })
+      .then(() => console.log("user name updated"))
+      .catch(error => console.log(error.message))
+    }
     
   }
 
