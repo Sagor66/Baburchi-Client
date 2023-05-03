@@ -1,18 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Rating from "react-rating";
-import {
-  FaEye,
-  FaRegBookmark,
-  FaRegStar,
-  FaShareAlt,
-  FaStar,
-} from "react-icons/fa";
+import { FaRegStar, FaStar } from "react-icons/fa";
+import toast, { Toaster } from "react-hot-toast";
 
 const ChefRecipe = ({ recipe }) => {
   const { recipe_name, recipe_image, ingredients, cooking_method, rating } =
     recipe;
+
+  const [active, setActive] = useState(true)
+
+  const notify = () => {
+    toast.success("Added To Favorites");
+    setActive(!active)
+  };
 
   return (
     <div className="grid grid-cols-5 justify-between items-center mb-14 shadow-2xl px-8 py-6 pr-14 rounded-lg">
@@ -57,7 +59,10 @@ const ChefRecipe = ({ recipe }) => {
               ></Rating>
             </span>
           </p>
-          <button className="btn-primary">Add To Favorite</button>
+          <Toaster position="top-center" reverseOrder={false} />
+          <button disabled={active ? false : true} onClick={notify} className={`${active ? "btn-primary" : "btn-disabled"}`}>
+            Add To Favorite
+          </button>
         </div>
       </div>
     </div>

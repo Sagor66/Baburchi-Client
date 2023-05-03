@@ -25,7 +25,7 @@ const ChefRecipes = () => {
   return (
     <div>
       {singleChef && <ChefBanner singleChef={singleChef}></ChefBanner>}
-      <div className="grid grid-cols-1 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 max-w-7xl mx-auto mb-32">
         <h2 className="section-header">Chef Recipes</h2>
         {recipes.map((recipe, i) => (
           <ChefRecipe key={i} recipe={recipe}></ChefRecipe>
