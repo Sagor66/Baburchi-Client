@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,6 +6,7 @@ import { faGithub, faGoogle } from "@fortawesome/free-brands-svg-icons";
 
 const Login = () => {
   const { signInUser, googleSignIn, githubSignIn } = useContext(AuthContext);
+  const [error, setError] = useState('')
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from.pathname || "/";
@@ -17,6 +18,7 @@ const Login = () => {
     const password = form.password.value;
 
     console.log(email, password);
+    setError('')
 
     signInUser(email, password)
       .then((result) => {
@@ -24,7 +26,10 @@ const Login = () => {
         console.log(loggedInUser);
         navigate(from, { replace: true });
       })
-      .catch((error) => console.log(error.message));
+      .catch((error) => {
+        setError(error.message)
+        console.log(error.message)
+      });
   };
 
   const handleGoogleSignIn = () => {
@@ -34,7 +39,10 @@ const Login = () => {
       navigate(from, { replace: true });
       console.log(loggedInUser)
     })
-    .catch(error => console.log(error.message))
+    .catch((error) => {
+      setError(error.message)
+      console.log(error.message)
+    });
   }
 
   const handleGithubSignIn = () => {
@@ -44,7 +52,10 @@ const Login = () => {
       navigate(from, { replace: true });
       console.log(loggedInUser)
     })
-    .catch(error => console.log(error.message))
+    .catch((error) => {
+      setError(error.message)
+      console.log(error.message)
+    });
   }
 
   return (
@@ -92,6 +103,7 @@ const Login = () => {
           </button>
         </div>
       </div>
+      <p className="text-sm text-red-600 max-w-sm mt-8">{error}</p>
     </div>
   );
 };

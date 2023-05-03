@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+  const [error, setError] = useState('')
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from.pathname || "/";
@@ -18,6 +19,8 @@ const Register = () => {
     const name = form.name.value;
     const photoURL = form.url.value;
 
+    setError('')
+
     createUser(email, password)
       .then((result) => {
         const createUser = result.user;
@@ -25,7 +28,10 @@ const Register = () => {
         updateUserData(result.user, name, photoURL);
         navigate(from, { replace: true });
       })
-      .catch((error) => console.log(error.message));
+      .catch((error) => {
+        setError(error.message)
+        console.log(error.message)
+      });
 
     const updateUserData = (user, name, photo) => {
       updateProfile(user, {
@@ -33,7 +39,9 @@ const Register = () => {
         photoURL: photo,
       })
         .then(() => console.log("user name updated"))
-        .catch((error) => console.log(error.message));
+        .catch((error) => {
+          console.log(error.message)
+        });
     };
   };
 
@@ -93,6 +101,7 @@ const Register = () => {
           </Link>
         </p>
       </form>
+      <p className="text-sm text-red-600 max-w-sm mt-8">{error}</p>
     </div>
   );
 };
