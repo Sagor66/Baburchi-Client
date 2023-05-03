@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faGoogle } from "@fortawesome/free-brands-svg-icons";
 
 const Login = () => {
-  const { signInUser, googleSignIn } = useContext(AuthContext);
+  const { signInUser, googleSignIn, githubSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from.pathname || "/";
@@ -29,6 +29,16 @@ const Login = () => {
 
   const handleGoogleSignIn = () => {
     googleSignIn()
+    .then((result) => {
+      const loggedInUser = result.user
+      navigate(from, { replace: true });
+      console.log(loggedInUser)
+    })
+    .catch(error => console.log(error.message))
+  }
+
+  const handleGithubSignIn = () => {
+    githubSignIn()
     .then((result) => {
       const loggedInUser = result.user
       navigate(from, { replace: true });
@@ -77,7 +87,7 @@ const Login = () => {
           <button onClick={() => handleGoogleSignIn()}>
             <FontAwesomeIcon className="icon fa-lg mr-4" icon={faGoogle} />
           </button>
-          <button>
+          <button onClick={() => handleGithubSignIn()}>
             <FontAwesomeIcon className="icon fa-lg" icon={faGithub} />
           </button>
         </div>
