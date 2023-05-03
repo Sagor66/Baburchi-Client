@@ -15,7 +15,7 @@ const ChefBanner = ({ singleChef }) => {
   } = singleChef;
 
   return (
-    <div className="grid grid-cols-2 items-center text-white bg-red-800 px-20">
+    <div className="grid grid-cols-2 items-center text-white bg-red-800 px-20 mb-32">
       <div className="mx-auto">
         <img className="w-[600px] h-[700px] object-cover" src={chef_picture} alt="" />
       </div>

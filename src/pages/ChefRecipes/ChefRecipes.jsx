@@ -10,11 +10,11 @@ const ChefRecipes = () => {
 
   const [chefs, setChefs] = useState([]);
 
-  const singleChef = chefs && chefs.find((chef) => parseInt(chef.id) === parseInt(id));
+  const singleChef =
+    chefs && chefs.find((chef) => parseInt(chef.id) === parseInt(id));
   // const singleRecipe = recipes.find(
   //   (recipe) => parseInt(recipesData.id) === parseInt(id)
   // );
-
 
   useEffect(() => {
     fetch("http://localhost:5000/chefs")
@@ -25,8 +25,14 @@ const ChefRecipes = () => {
   return (
     <div>
       {singleChef && <ChefBanner singleChef={singleChef}></ChefBanner>}
+      <div className="grid grid-cols-1 max-w-7xl mx-auto">
+        <h2 className="section-header">Chef Recipes</h2>
+        {recipes.map((recipe, i) => (
+          <ChefRecipe key={i} recipe={recipe}></ChefRecipe>
+        ))}
+      </div>
     </div>
-  )
+  );
 };
 
 export default ChefRecipes;
