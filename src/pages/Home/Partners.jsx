@@ -13,7 +13,7 @@ const Partners = () => {
   return (
     <div className="mt-32 mb-48">
       <h2 className="section-header">Partner Restaurants</h2>
-      <Marquee speed={150}>
+      <Marquee className="bg-red-100 py-10" speed={150}>
         <img className="w-40 h-40 object-cover mr-20" src={img1} alt="" />
         <img className="w-40 h-40 object-cover mr-20" src={img2} alt="" />
         <img className="w-40 h-40 object-cover mr-20" src={img3} alt="" />

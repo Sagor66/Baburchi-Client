@@ -2,6 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendar, faThumbsUp } from "@fortawesome/free-regular-svg-icons";
 import { faUtensils } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const Chef = ({ chef }) => {
   const {
@@ -14,7 +15,7 @@ const Chef = ({ chef }) => {
   } = chef;
 
   return (
-    <div className="shadow-xl hover:shadow-2xl rounded-2xl flex flex-col items-center pt-6 pb-12">
+    <div className="shadow-xl hover:shadow-2xl hover:shadow-red-900 rounded-2xl flex flex-col items-center pb-12">
       <div className="mb-5 bg-red-100 w-full mx-auto flex justify-center rounded-t-2xl">
         <img className="max-h-64 max-w-96" src={chef_picture} alt="" />
       </div>
@@ -22,23 +23,29 @@ const Chef = ({ chef }) => {
         <div className="">
           <h3 className="text-center text-2xl font-bold mb-5">{chef_name}</h3>
           <div className="chef-text">
-            <FontAwesomeIcon className="icon fa-lg" icon={faCalendar} />  
+            <FontAwesomeIcon className="icon fa-lg" icon={faCalendar} />
             <p>
-            Years Of Experience: <span className="text-red-500">{years_of_experience}yrs</span>
+              Years Of Experience:{" "}
+              <span className="text-red-500">{years_of_experience}yrs</span>
             </p>
           </div>
           <div className="chef-text">
             <FontAwesomeIcon className="icon fa-lg" icon={faUtensils} />
             <p>
-            Number Of Recipes: <span className="text-red-500">{number_of_recipes}</span>
+              Number Of Recipes:{" "}
+              <span className="text-red-500">{number_of_recipes}</span>
             </p>
           </div>
           <div className="chef-text">
             <FontAwesomeIcon className="icon fa-lg" icon={faThumbsUp} />
-            <p>Likes: <span className="text-red-500">{likes}</span></p>
+            <p>
+              Likes: <span className="text-red-500">{likes}</span>
+            </p>
           </div>
         </div>
-        <button className="btn-primary mt-5">View Recipes</button>
+        <Link to={`/chef-recipes/${id}`}>
+          <button className="btn-primary mt-5 w-full">View Recipes</button>
+        </Link>
       </div>
     </div>
   );
