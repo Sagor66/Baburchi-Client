@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [hover, setHover] = useState(false);
 
   const handleLogOut = () => {
     logOut()
@@ -42,11 +43,23 @@ const Header = () => {
       <div>
         {user ? (
           <div className="flex items-center gap-8">
-            <div className="flex items-center gap-4">
-              <img className="w-[60px] rounded-full" src={user.photoURL} alt="" />
-              <p>{user.displayName}</p>
+            <div
+              onMouseEnter={() => setHover(true)}
+              onMouseLeave={() => setHover(false)}
+            >
+              {hover ? (
+                <p className="w-[60px] h-[60px] text-red-600">{user.displayName}</p>
+              ) : (
+                <img
+                  className="w-[60px] h-[60px] rounded-full"
+                  src={user.photoURL}
+                  alt=""
+                />
+              )}
             </div>
-            <button onClick={() => handleLogOut()} className="btn-primary">Log Out</button>
+            <button onClick={() => handleLogOut()} className="btn-primary">
+              Log Out
+            </button>
           </div>
         ) : (
           <div className="flex gap-10">
