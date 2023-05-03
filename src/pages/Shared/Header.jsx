@@ -3,8 +3,15 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Header = () => {
-  const { user } = useContext(AuthContext)
-  
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error.message));
+  };
+
   return (
     <nav className="sticky top-0 bg-white flex justify-between items-center px-10 pt-6 pb-8 shadow-2xl">
       <Link to="/">
@@ -32,13 +39,20 @@ const Header = () => {
           Blog
         </Link>
       </div>
-      <div className="flex gap-10">
-        <Link to="/register">
-          <button className="btn-primary">Sign Up</button>
-        </Link>
-        <Link to="/login">
-          <button className="btn-primary">Login</button>
-        </Link>
+
+      <div>
+        {user ? (
+          <button onClick={() => handleLogOut()} className="btn-primary">Log Out</button>
+        ) : (
+          <div className="flex gap-10">
+            <Link to="/register">
+              <button className="btn-primary">Sign Up</button>
+            </Link>
+            <Link to="/login">
+              <button className="btn-primary">Login</button>
+            </Link>
+          </div>
+        )}
       </div>
     </nav>
   );
