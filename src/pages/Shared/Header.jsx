@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import ActiveRoute from "../../routes/ActiveRoute";
+import chefLogo from '../../../public/chef.jpg'
 
 
 const Header = () => {
@@ -24,7 +25,7 @@ const Header = () => {
             </span>
             <span className="text-red-600">i</span>
           </h3>
-          <img className="h-14 w-14" src="../../../public/chef.jpg" alt="" />
+          <img className="h-14 w-14" src={chefLogo} alt="" />
         </div>
       </Link>
       <div className="flex items-center gap-8">

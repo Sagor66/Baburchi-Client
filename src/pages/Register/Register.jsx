@@ -47,12 +47,12 @@ const Register = () => {
   };
 
   return (
-    <div className="w-[400px] md:max-w-5xl mx-auto my-32 border-4 border-red-600 p-10 rounded-lg">
+    <div className="md:max-w-5xl mx-auto my-32 border-4 border-red-600 p-10 rounded-lg">
       <h2 className="text-3xl font-bold text-red-600 text-center mb-8">
         Sign Up
       </h2>
       <form onSubmit={handleLogin} className="flex flex-col gap-2">
-        <label className="max-w-[400px] form-label md:inline-block">
+        <label className="w-[300px] md:w-[400px] form-label md:inline-block">
           <span className="text-xl font-medium p-2 md:inline-block">Name</span>
           <input
             className="form-input"
@@ -62,7 +62,7 @@ const Register = () => {
             required
           />
         </label>
-        <label className="max-w-[400px] form-label md:inline-block">
+        <label className="w-[300px] md:w-[400px] form-label md:inline-block">
           <span className="text-xl font-medium p-2 md:inline-block">Email</span>
           <input
             className="form-input"
@@ -72,7 +72,7 @@ const Register = () => {
             required
           />
         </label>
-        <label className="max-w-[400px] form-label md:inline-block">
+        <label className="w-[300px] md:w-[400px] form-label md:inline-block">
           <span className="text-xl font-medium p-2 md:inline-block">Password</span>
           <input
             className="form-input"
@@ -82,7 +82,7 @@ const Register = () => {
             required
           />
         </label>
-        <label className="max-w-[400px] form-label md:inline-block">
+        <label className="w-[300px] md:w-[400px] form-label md:inline-block">
           <span className="text-xl font-medium p-2 md:inline-block">
             Photo URL
           </span>

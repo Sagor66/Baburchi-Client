@@ -7,6 +7,8 @@ import {
   faInstagram,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import chefLogo from '../../../public/chef.jpg'
+
 
 const Footer = () => {
   return (
@@ -23,7 +25,7 @@ const Footer = () => {
       <div className="col-span-2 flex flex-col items-center text-center gap-2">
         <img
           className="h-14 w-14 rounded-full"
-          src="../../../public/chef.jpg"
+          src={chefLogo}
           alt=""
         />
         <h3 className="text-5xl font-bold tracking-wide mb-5">
