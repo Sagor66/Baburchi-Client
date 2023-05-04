@@ -16,12 +16,14 @@ const Register = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
+    const confirmPassword = form.confirmPassword.value;
     const name = form.name.value;
     const photoURL = form.url.value;
 
     setError('')
 
-    createUser(email, password)
+    if (password === confirmPassword) {
+      createUser(email, password)
       .then((result) => {
         const createUser = result.user;
         console.log(createUser);
@@ -30,9 +32,17 @@ const Register = () => {
         form.reset()
       })
       .catch((error) => {
-        setError(error.message)
+        if (password.length < 6) {
+          setError(`Pass too short! Minimum 6 characters needed \n${error.message}`)
+        } else {
+          setError(error.message)
+        }
         console.log(error.message)
       });
+    } else {
+      setError(`Password and Confirm Password fields expect same value \n${error.message}`)
+    }
+    
 
     const updateUserData = (user, name, photo) => {
       updateProfile(user, {
@@ -78,6 +88,16 @@ const Register = () => {
             className="form-input"
             type="password"
             name="password"
+            placeholder="Enter Password"
+            required
+          />
+        </label>
+        <label className="w-[300px] md:w-[400px] form-label md:inline-block">
+          <span className="text-xl font-medium p-2 md:inline-block">Confirm Password</span>
+          <input
+            className="form-input"
+            type="password"
+            name="confirmPassword"
             placeholder="Enter Password"
             required
           />
