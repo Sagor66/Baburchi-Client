@@ -10,7 +10,7 @@ import {
 
 const Footer = () => {
   return (
-    <div className="grid grid-cols-4 items-center bg-gray-800 text-white pl-10 pt-32 pb-24">
+    <div className="grid grid-cols-1 md:grid-cols-4 items-center bg-gray-800 text-white pl-10 pt-32 pb-24 gap-10">
       <div className="border-dashed border-r-4 pl-10 border-red-600">
         <h2 className="text-3xl font-bold mb-6">Opening Times</h2>
         <div className="text-red-50">

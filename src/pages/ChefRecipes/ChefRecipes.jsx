@@ -12,9 +12,6 @@ const ChefRecipes = () => {
 
   const singleChef =
     chefs && chefs.find((chef) => parseInt(chef.id) === parseInt(id));
-  // const singleRecipe = recipes.find(
-  //   (recipe) => parseInt(recipesData.id) === parseInt(id)
-  // );
 
   useEffect(() => {
     fetch("http://localhost:5000/chefs")

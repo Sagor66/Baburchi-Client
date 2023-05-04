@@ -9,7 +9,7 @@ import dish3 from "../../assets/dish/dish-3.jpg";
 
 const PopularDishes = () => {
   return (
-    <div className="mb-32">
+    <div className="mb-32 p-4">
       <h2 className="section-header">Most Popular Dishes</h2>
       <Swiper
         modules={[Autoplay]}

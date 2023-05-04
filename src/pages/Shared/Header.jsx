@@ -15,7 +15,7 @@ const Header = () => {
   };
 
   return (
-    <nav className="sticky top-0 bg-white flex justify-between items-center px-10 pt-6 pb-8 shadow-2xl">
+    <nav className="md:sticky top-0 bg-white flex flex-col md:flex-row justify-between items-center px-10 pt-6 pb-8 shadow-2xl gap-5">
       <Link to="/">
         <div className="flex items-center">
           <h3 className="text-5xl font-bold tracking-wide">

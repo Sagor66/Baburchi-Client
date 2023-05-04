@@ -27,6 +27,7 @@ const Register = () => {
         console.log(createUser);
         updateUserData(result.user, name, photoURL);
         navigate(from, { replace: true });
+        form.reset()
       })
       .catch((error) => {
         setError(error.message)
@@ -46,13 +47,13 @@ const Register = () => {
   };
 
   return (
-    <div className="max-w-5xl mx-auto my-32 border-4 border-red-600 p-10 rounded-lg">
+    <div className="w-[400px] md:max-w-5xl mx-auto my-32 border-4 border-red-600 p-10 rounded-lg">
       <h2 className="text-3xl font-bold text-red-600 text-center mb-8">
         Sign Up
       </h2>
-      <form onSubmit={handleLogin} className="flex flex-col gap-2 w-fit">
-        <label className="max-w-[400px] form-label inline-block">
-          <span className="text-xl font-medium p-2 inline-block">Name</span>
+      <form onSubmit={handleLogin} className="flex flex-col gap-2">
+        <label className="max-w-[400px] form-label md:inline-block">
+          <span className="text-xl font-medium p-2 md:inline-block">Name</span>
           <input
             className="form-input"
             type="text"
@@ -61,8 +62,8 @@ const Register = () => {
             required
           />
         </label>
-        <label className="max-w-[400px] form-label inline-block">
-          <span className="text-xl font-medium p-2 inline-block">Email</span>
+        <label className="max-w-[400px] form-label md:inline-block">
+          <span className="text-xl font-medium p-2 md:inline-block">Email</span>
           <input
             className="form-input"
             type="email"
@@ -71,8 +72,8 @@ const Register = () => {
             required
           />
         </label>
-        <label className="max-w-[400px] form-label inline-block">
-          <span className="text-xl font-medium p-2 inline-block">Password</span>
+        <label className="max-w-[400px] form-label md:inline-block">
+          <span className="text-xl font-medium p-2 md:inline-block">Password</span>
           <input
             className="form-input"
             type="password"
@@ -81,8 +82,8 @@ const Register = () => {
             required
           />
         </label>
-        <label className="max-w-[400px] form-label inline-block">
-          <span className="text-xl font-medium p-2 inline-block">
+        <label className="max-w-[400px] form-label md:inline-block">
+          <span className="text-xl font-medium p-2 md:inline-block">
             Photo URL
           </span>
           <input

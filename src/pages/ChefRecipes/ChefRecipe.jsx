@@ -17,7 +17,7 @@ const ChefRecipe = ({ recipe }) => {
   };
 
   return (
-    <div className="grid grid-cols-5 justify-between items-center mb-14 shadow-2xl px-8 py-6 pr-14 rounded-lg">
+    <div className="grid grid-cols-1 md:grid-cols-5 justify-between items-center mb-14 shadow-2xl px-8 py-6 pr-14 rounded-lg">
       <div className="col-span-2">
         <img
           className="w-[420px] h-[420px] object-cover rounded-lg"
@@ -45,7 +45,7 @@ const ChefRecipe = ({ recipe }) => {
           <h4 className="text-2xl font-semibold mb-2">Culinary</h4>
           <p className="text-gray-600">{cooking_method}</p>
         </div>
-        <div className="flex justify-between items-center">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="flex items-center gap-2">
             <span className="font-semibold">Rating:</span>
             <span>{rating}</span>
