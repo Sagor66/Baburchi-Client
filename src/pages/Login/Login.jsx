@@ -72,6 +72,7 @@ const Login = () => {
             type="email"
             name="email"
             placeholder="Email Address"
+            defaultValue="sagor@gmail.com"
             required
           />
         </label>
@@ -82,6 +83,7 @@ const Login = () => {
             type="password"
             name="password"
             placeholder="Enter Password"
+            defaultValue="123123"
             required
           />
         </label>
